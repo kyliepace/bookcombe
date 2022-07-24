@@ -22,7 +22,7 @@ import { ErrorComponent } from "./components/404";
 const queryClient = new QueryClient();
 
 export const meta: MetaFunction = () => {
-  return { title: "Dounut" };
+  return { title: "Bookcombe Books" };
 };
 
 export function links() {
@@ -33,7 +33,7 @@ export const loader: LoaderFunction = () => {
   return {
     ENV: {
       SERVICE_API_URL: process.env.SERVICE_API_URL,
-      TENANT_IDENTIFIER: process.env.CRYSTALLIZE_TENANT_IDENTIFIER,
+      TENANT_IDENTIFIER: process.env.CRYSTALLIZE_TENANT_IDENTIFIER, // where is this being used?
       NODE_EXECUTION_MODE: process.env.NODE_EXECUTION_MODE,
     },
   };
@@ -68,7 +68,7 @@ export default function App() {
         <meta name="msapplication-TileImage" content="/icons/windows11/Square150x150Logo.scale-100.png" />
         <meta name="theme-color" content="#ffffff" />
         <link rel="apple-touch-startup-image" href="/images/icons/windows11/Square150x150Logo.scale-100.png" />
-        <meta name="apple-mobile-web-app-title" content="Dounot" />
+        <meta name="apple-mobile-web-app-title" content="Bookcombe Books" />
         <link rel="manifest" href="/manifest.json" />
 
         <Meta />

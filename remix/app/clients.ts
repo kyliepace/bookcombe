@@ -1,13 +1,14 @@
 import { GraphQLClient } from "graphql-request";
 
-const CATALOGUE_API_URL = `https://api.crystallize.com/dounot/catalogue`;
 
-export const catalogueClient = new GraphQLClient(CATALOGUE_API_URL);
+export const catalogueClient = new GraphQLClient(process.env.CATALOGUE_API_URL, {
+  headers: { 'X-Crystallize-Static-Auth-Token': process.env.AUTH_TOKEN } 
+});
 
 // Service API
 // https://crystallize.com/learn/open-source/boilerplates/service-api
 export const serviceAPIClient = new GraphQLClient(
-    `https://product-storytelling-service-api.vercel.app/api/graphql`,
+    process.env.SERVICE_API_URL,
     {
       credentials: "include",
       mode: "cors",

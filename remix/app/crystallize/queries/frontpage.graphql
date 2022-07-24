@@ -4,7 +4,7 @@ query Frontpage($path: String!, $version: VersionLabel) {
       # ContentChunk
       ...component
     }
-    grid: component(id: "grid") {
+    grid: component(id: "grids") {
       content {
         ... on GridRelationsContent {
           grids {
@@ -36,31 +36,24 @@ query Frontpage($path: String!, $version: VersionLabel) {
       }
     }
   }
-  donuts: catalogue(path: "/shop", language: "en") {
+  books: catalogue(path: "/shop", language: "en") {
     children {
       id
-      topics {
-        name
-      }
+      topics { name } 
       bundle: component(id: "bundle") {
-        content {
-          ...boolean
-        }
+        content { ...boolean }
       }
       ... on Product {
-        __typename
-        name
-        path
-        topics {
-          name
-        }
+        __typename 
+        name 
+        path 
+        topics { name } 
         defaultVariant {
-          firstImage {
-            ...image
-          }
+          firstImage { ...image }
           price
         }
       }
+
     }
   }
 }

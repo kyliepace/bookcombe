@@ -382,7 +382,9 @@ export type Product = Item & {
   defaultVariant?: Maybe<ProductVariant>;
   externalReference?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
+  /** @deprecated option removed */
   isSubscriptionOnly?: Maybe<Scalars['Boolean']>;
+  /** @deprecated option removed */
   isVirtual?: Maybe<Scalars['Boolean']>;
   language?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
@@ -453,6 +455,7 @@ export type ProductVariant = {
   stock?: Maybe<Scalars['Int']>;
   stockLocations?: Maybe<Array<ProductStockLocation>>;
   subscriptionPlans?: Maybe<Array<ProductVariantSubscriptionPlan>>;
+  videos?: Maybe<Array<Video>>;
 };
 
 
@@ -676,6 +679,7 @@ export enum TierType {
 
 export type Topic = {
   __typename?: 'Topic';
+  childCount: Scalars['Int'];
   children?: Maybe<Array<Topic>>;
   createdAt?: Maybe<Scalars['Datetime']>;
   id: Scalars['ID'];

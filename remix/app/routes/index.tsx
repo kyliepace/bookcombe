@@ -13,6 +13,7 @@ import { HttpCacheHeaderTagger } from "~/http-cache-header-tagger";
 
 export let loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
+
   // for the preview mode, if the query parameter preview=true is present, ask for the draft version
   const preview = url.searchParams.get("preview");
   const version = preview ? "draft" : "published";
@@ -34,7 +35,6 @@ export let meta: MetaFunction = ({ data }) => {
   } = data;
   let metaData = componentContent(meta.content, "ContentChunkContent")
     .chunks[0];
-
   return {
     title: `${componentContent(metaData[0].content, "SingleLineContent").text}`,
     description: `${
@@ -51,8 +51,7 @@ export function headers() {
 }
 
 export default function Index() {
-  let { catalogue, donuts } = useLoaderData();
-  let { grid } = catalogue;
+  let { catalogue: { grid }, books } = useLoaderData();
 
   const children = ({ cells }) => {
     return cells.map((cell, index) => (
@@ -81,7 +80,7 @@ export default function Index() {
       <Grid model={grid.content.grids[0]} className="gap-5">
         {children}
       </Grid>
-      <Products donuts={donuts} />
+      <Products products={books} />
     </div>
   );
 }
