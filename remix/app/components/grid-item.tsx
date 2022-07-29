@@ -1,13 +1,21 @@
 import { Image } from "@crystallize/react-image";
 import { Link } from "remix";
 
+const Price = ({variants}) => {
+  if (!variants){
+    return null
+  }
+  return (
+    <p className="mt-4">${variants[0].price}</p>
+  )
+}
+
 export const GridItem = ({ cell }) => {
 if (!cell.item){ return null }
-console.log('cell: ', cell.item)
   return cell.layout.colspan === 3 ? (
     <Link to={cell?.item?.path} prefetch="intent">
       <div className="flex relative lg:flex-row flex-col">
-        { cell.item.variants[0]?.images && <Image
+        { cell.item?.variants && cell.item.variants[0]?.images && <Image
           {...cell.item?.variants[0]?.images[0]}
           sizes="(max-width: 700px) 300px, 500px"
           className="lg:absolute lg:top-0 lg:bottom-0 lg:right-0  lg:w-8/12 overflow-hidden rounded-r-xl"
@@ -15,7 +23,7 @@ console.log('cell: ', cell.item)
         <div className="flex flex-col justify-evenly lg:w-128  px-5 bg-background1 h-80 p-5 rounded-xl w-full lg:items-start items-center">
           <div className="w-60 lg:text-left text-center">
             <h2 className="text-3xl font-bold">{cell?.item?.name}</h2>
-            <p className="mt-4">${cell.item?.variants[0]?.price}</p>
+            {/* <Price variants={cell.item.variants} /> */}
           </div>
           {/* <div className="flex gap-1">
             {cell.item?.topics?.map((topic) => (
@@ -44,9 +52,10 @@ console.log('cell: ', cell.item)
               </div>
             ))}
           </div> */}
-          <p className="self-end">${cell.item.variants[0]?.price}</p>
+          {/* <Price variants={cell.item.variants} /> */}
+
         </div>
-        { cell.item.variants[0]?.images && <Image
+        { cell.item?.variants && cell.item.variants[0]?.images && <Image
           {...cell.item.variants[0]?.images[0]}
           sizes="(max-width: 700px) 200px, 300px"
           loading="lazy"

@@ -5,20 +5,24 @@ import {
   FrontpageQuery,
 } from "../crystallize/queries/frontpage.generated";
 import { normalizeDocumentNode } from "../crystallize/utils/normalizeDocumentNode";
-import Grid from "@crystallize/grid-renderer/react";
 import { GridItem } from "../components/grid-item";
+import Grid from "@crystallize/grid-renderer/react";
+
 import { Products } from "../components/products";
 import { componentContent } from "../crystallize/utils/componentContent";
 import { HttpCacheHeaderTagger } from "~/http-cache-header-tagger";
 
 export let loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
-
   // for the preview mode, if the query parameter preview=true is present, ask for the draft version
   const preview = url.searchParams.get("preview");
   const version = preview ? "draft" : "published";
   const path = "/frontpage";
-  const data = await catalogueClient.request<FrontpageQuery>(
+  const catalogueUrl = process.env.NODE_ENV === 'development' ? 
+    process.env.MOCK_CATALOGUE_API_URL : 
+    process.env.CATALOGUE_API_URL
+  const client = catalogueClient(catalogueUrl)
+  const data = await client.request<FrontpageQuery>(
     normalizeDocumentNode(FrontpageDocument),
     { path, version }
   );
@@ -52,7 +56,6 @@ export function headers() {
 
 export default function Index() {
   let { catalogue: { grid }, books } = useLoaderData();
-
   const children = ({ cells }) => {
     return cells.map((cell, index) => (
       <div
@@ -67,7 +70,7 @@ export default function Index() {
       </div>
     ));
   };
-
+console.log('grid: ', grid.content.grids[0])
   return (
     <div className="py-20">
       <div
@@ -77,9 +80,15 @@ export default function Index() {
           zIndex: "-1",
         }}
       ></div>
-      <Grid model={grid.content.grids[0]} className="gap-5">
+      <Grid 
+        model={grid.content.grids[0]} 
+        cellComponent={({ cell }) => <div>{cell.item.name}</div>}
+        className="gap-5"
+      >
         {children}
       </Grid>
+
+
       <Products products={books} />
     </div>
   );

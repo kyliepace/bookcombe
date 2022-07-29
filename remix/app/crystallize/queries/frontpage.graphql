@@ -17,9 +17,6 @@ query Frontpage($path: String!, $version: VersionLabel) {
                 item {
                   name
                   path
-                  topics {
-                    name
-                  }
                   ... on Product {
                     variants {
                       images {
@@ -47,7 +44,6 @@ query Frontpage($path: String!, $version: VersionLabel) {
         __typename 
         name 
         path 
-        topics { name } 
         defaultVariant {
           firstImage { ...image }
           price

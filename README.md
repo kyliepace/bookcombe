@@ -1,31 +1,9 @@
-# Remix Boiler Plate
-
-----
-
-This repository is what we call a "subtree split": a read-only copy of one directory of the main repository. 
-
-If you want to report or contribute, you should do it on the main repository: https://github.com/CrystallizeAPI/boilerplates
-
-----
-
-The product storytelling boilerplate is a minimal eCommerce boilerplate built using Remix and Crystallize. You can also check out the [live demo](https://dounot.milliseconds.live/) of this boilerplate.
-
-![dounot-frontpage](https://user-images.githubusercontent.com/26195876/156512917-e86bc64d-6069-4ed8-9705-74134b40a257.png)
-
-## What this guide covers:
-
-- Setting up your project
-- Instructions for running the project
-- Accessing the development site
-- Folder structure of the boilerplate
-- Editing the components and the overall theme
-- Deploying the project
+# Bookcombe Remix & Service API
 
 ## Getting Started
 
-To get started, head over to GitHub and clone [the repository](https://github.com/CrystallizeAPI/product-storytelling-examples). This project contains two folders - remix and service-api. The remix folder contains the application while the service-api folder contains a middleware service that connects your frontend to your backend. You can find a more detailed explanation of what the API does in the [GraphQL Service API documentation](https://crystallize.com/learn/open-source/boilerplates/service-api). Make sure to install all the required packages by running the following command for both the folders:
-
 ```bash
+cd ./remix
 npm install
 ```
 
@@ -44,10 +22,7 @@ npm run dev
 
 ## Accessing the Development Site
 
-
-Once the development server is running, you will be able to browse to http://localhost:3000.
-
-![dounot-development](https://user-images.githubusercontent.com/26195876/156513206-abb8cda1-ead0-4cf1-81df-fcca82529ba6.png)
+Once the development server is running, the page will be available at localhost:3000
 
 ## Folder Structure (Remix)
 
@@ -89,7 +64,7 @@ Components can be edited by heading over to the **components** folder in **app.*
 
 The frontpage contains a grid and it is fetching all the grid related information (including the layout) from Crystallize. You can directly edit the grid in Crystallize for changes to take effect. Editing the styling such as the background and typography can be done in the **grid-item** component.
 
-![dounot-grid](https://user-images.githubusercontent.com/26195876/156513469-1e8d04ba-cbd7-4e4c-a1f4-3e45cc430948.png)
+If you need to change the graphql query that this app makes, change the relevent `.graphql` file and then run `npm run generate:pim` to build the generated file the app will actually use.
 
 ### Product
 
