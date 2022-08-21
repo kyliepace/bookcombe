@@ -1,0 +1,26 @@
+query Book {
+  books: catalogue(path: "/shop", language: "en") {
+    children {
+      id
+      topics {
+        name
+      }
+      bundle: component(id: "bundle") {
+        content {
+          ...boolean
+        }
+      }
+      ... on Product {
+        __typename
+        name
+        path
+        defaultVariant {
+          firstImage {
+            ...image
+          }
+          price
+        }
+      }
+    }
+  }
+}

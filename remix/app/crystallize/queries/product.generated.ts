@@ -1,7 +1,7 @@
 import * as Types from '../types.generated';
 
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
-import { ComponentFragmentDoc, BooleanFragmentDoc, ImageFragmentDoc } from '../fragments/content.generated';
+import { ComponentFragmentDoc, ContentFragmentDoc, ImagesFragmentDoc, ImageFragmentDoc } from '../fragments/content.generated';
 export type ProductQueryVariables = Types.Exact<{
   path: Types.Scalars['String'];
   version?: Types.InputMaybe<Types.VersionLabel>;

@@ -121,14 +121,14 @@ function Layout({ children }) {
           >
             <Logo />
           </Link>
-          <Link
+          {/* <Link
             prefetch="intent"
             to="/cart"
             title="Your cart"
             className="remix-app__header-link"
           >
             <BasketButton />
-          </Link>
+          </Link> */}
         </div>
       </header>
       <div className="remix-app__main">

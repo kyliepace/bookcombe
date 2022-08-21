@@ -187,6 +187,7 @@ export type FolderSubtreeArgs = {
 export type Grid = {
   __typename?: 'Grid';
   createdAt?: Maybe<Scalars['Datetime']>;
+  dimensions?: Maybe<GridDimensions>;
   id: Scalars['ID'];
   language: Scalars['String'];
   meta?: Maybe<Array<MetaProperty>>;
@@ -217,8 +218,16 @@ export type GridColumnMetaPropertyArgs = {
 
 export type GridColumnLayout = {
   __typename?: 'GridColumnLayout';
+  colIndex?: Maybe<Scalars['Int']>;
   colspan?: Maybe<Scalars['Int']>;
+  rowIndex?: Maybe<Scalars['Int']>;
   rowspan?: Maybe<Scalars['Int']>;
+};
+
+export type GridDimensions = {
+  __typename?: 'GridDimensions';
+  columns?: Maybe<Scalars['Int']>;
+  rows?: Maybe<Scalars['Int']>;
 };
 
 export type GridRelationsContent = {
@@ -441,6 +450,10 @@ export type ProductStockLocation = {
 export type ProductVariant = {
   __typename?: 'ProductVariant';
   attributes?: Maybe<Array<Maybe<ProductVariantAttribute>>>;
+  /** **EXPERIMENTAL:** Watch out! This feature is still in testing process. */
+  component?: Maybe<Component>;
+  /** **EXPERIMENTAL:** Watch out! This feature is still in testing process. */
+  components?: Maybe<Array<Component>>;
   externalReference?: Maybe<Scalars['String']>;
   firstImage?: Maybe<Image>;
   id: Scalars['ID'];
@@ -456,6 +469,16 @@ export type ProductVariant = {
   stockLocations?: Maybe<Array<ProductStockLocation>>;
   subscriptionPlans?: Maybe<Array<ProductVariantSubscriptionPlan>>;
   videos?: Maybe<Array<Video>>;
+};
+
+
+export type ProductVariantComponentArgs = {
+  id: Scalars['String'];
+};
+
+
+export type ProductVariantComponentsArgs = {
+  ids?: InputMaybe<Array<Scalars['String']>>;
 };
 
 
