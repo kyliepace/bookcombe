@@ -22,7 +22,8 @@ module.exports = {
       grey: 'rgba(0, 0, 0, 0.03);',
     },
     fontFamily: {
-      text: ['Raleway', 'sans-serif'],
+      header: ['"Aboreto"', 'sans-serif'],
+      text: ['Aboreto', 'sans-serif'],
     },
     spacing: {
       auto: 'auto',

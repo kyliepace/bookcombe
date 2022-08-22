@@ -845,6 +845,10 @@ select {
   width: 32rem;
 }
 
+.basis-1\/2 {
+  flex-basis: 50%;
+}
+
 .scale-100 {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
@@ -1071,6 +1075,11 @@ select {
   padding-right: 0.75rem;
 }
 
+.py-80 {
+  padding-top: 20rem;
+  padding-bottom: 20rem;
+}
+
 .pt-5 {
   padding-top: 1.25rem;
 }
@@ -1079,12 +1088,16 @@ select {
   padding-top: 1rem;
 }
 
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
 .text-center {
   text-align: center;
 }
 
 .font-text {
-  font-family: Raleway, sans-serif;
+  font-family: Aboreto, sans-serif;
 }
 
 .text-3xl {
@@ -1097,14 +1110,14 @@ select {
   line-height: 1.25rem;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-5xl {
@@ -1215,32 +1228,12 @@ select {
 }
 
 @media (min-width: 976px) {
-  .lg\:absolute {
-    position: absolute;
-  }
-
-  .lg\:top-0 {
-    top: 0px;
-  }
-
-  .lg\:bottom-0 {
-    bottom: 0px;
-  }
-
-  .lg\:right-0 {
-    right: 0px;
-  }
-
   .lg\:h-106 {
     height: 28rem;
   }
 
   .lg\:w-content {
     width: 1040px;
-  }
-
-  .lg\:w-8\/12 {
-    width: 66.666667%;
   }
 
   .lg\:w-128 {
@@ -1267,15 +1260,7 @@ select {
     flex-direction: row;
   }
 
-  .lg\:items-start {
-    align-items: flex-start;
-  }
-
   .lg\:gap-1 {
     gap: 0.25rem;
-  }
-
-  .lg\:text-left {
-    text-align: left;
   }
 }

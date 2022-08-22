@@ -45,6 +45,16 @@ query Frontpage($path: String!, $version: VersionLabel) {
                         ...content
                       }
                     }
+                    items: component(id: "items") {
+                      content {
+                        ... on ItemRelationsContent {
+                          items {
+                            name
+                            path
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }

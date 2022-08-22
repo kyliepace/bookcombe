@@ -1,33 +1,33 @@
-import { useEffect } from "react";
-import { useBasket } from "./basket";
+import { useEffect } from 'react'
+import { useBasket } from './basket'
 
 export default function Confirmation({ order, success }) {
-  const basket = useBasket();
+  const basket = useBasket()
 
   if (success) {
-    basket.actions.empty();
+    basket.actions.empty()
   }
 
   useEffect(() => {
     if (!order) {
-      const t = setTimeout(() => window.location.reload(), 5000);
+      const t = setTimeout(() => window.location.reload(), 5000)
 
-      return () => clearTimeout(t);
+      return () => clearTimeout(t)
     }
-  }, [order]);
+  }, [order])
 
   if (!order) {
-    return <p>Loading...</p>;
+    return <p>Loading...</p>
   }
 
-  const cart = order.cart.map((item) => ({
+  const cart = order.cart.map(item => ({
     ...item,
     image: {
       url: item.imageUrl,
     },
-  }));
+  }))
 
-  const { total } = order;
+  const { total } = order
 
   return (
     <div className="w-auth p-20 bg-background3 mx-auto mt-20 text-text">
@@ -45,7 +45,7 @@ export default function Confirmation({ order, success }) {
                 </div>
                 <p>${item.price.gross * item.quantity}</p>
               </div>
-            );
+            )
           })}
           <div className="flex flex-col gap-3 border-t-2 pt-5">
             <div className="flex justify-between">
@@ -64,5 +64,5 @@ export default function Confirmation({ order, success }) {
         </div>
       </div>
     </div>
-  );
+  )
 }

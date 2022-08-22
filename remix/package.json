@@ -17,7 +17,6 @@
     "generate:service-api": "graphql-codegen --config codegen.service-api.yml"
   },
   "dependencies": {
-    "@crystallize/grid-renderer": "^2.1.1",
     "@crystallize/react-content-transformer": "^2.0.0",
     "@crystallize/react-image": "^7.3.1",
     "@graphql-codegen/typescript": "^2.4.2",

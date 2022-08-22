@@ -7,8 +7,7 @@ import {
 import { BookDocument, BookQuery } from '../crystallize/queries/book.generated'
 import { normalizeDocumentNode } from '../crystallize/utils/normalizeDocumentNode'
 import { GridItem } from '../components/grid-item'
-import Grid from '@crystallize/grid-renderer/react'
-
+import { Grid } from '../components/grid'
 import { Products } from '../components/products'
 import { componentContent } from '../crystallize/utils/componentContent'
 import { HttpCacheHeaderTagger } from '~/http-cache-header-tagger'
@@ -74,7 +73,7 @@ export default function Index() {
   }
 
   return (
-    <div className="py-20">
+    <div className="py-80">
       <div
         className="bg-background5 z-0 absolute left-0 right-0 bottom-0 rounded-tl-full rounded-tr-full"
         style={{

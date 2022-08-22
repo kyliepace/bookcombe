@@ -1,15 +1,16 @@
-# fly.toml file generated for dounot-superfast on 2022-02-28T12:04:20+01:00
+# fly.toml file generated for bookcombe on 2022-08-21T16:47:00-07:00
 
-app = "dounot-superfast"
+app = "bookcombe"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
 [env]
-  CRYSTALLIZE_TENANT_IDENTIFIER = "dounot"
+  CRYSTALLIZE_TENANT_IDENTIFIER = "bookcombe"
   SERVICE_API_URL = "https://product-storytelling-service-api.vercel.app/api/graphql"
   NODE_ENV="production"
+  CATALOGUE_API_URL = "https://api.crystallize.com/bookcombe/catalogue"
 
 [experimental]
   allowed_public_ports = []
