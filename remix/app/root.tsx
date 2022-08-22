@@ -158,9 +158,9 @@ function Layout({ children }) {
           >
             <BasketButton />
           </Link> */}
-          <Link to="https://instagram.com/bookcombe" title="Instagram">
+          <a href="https://instagram.com/bookcombe" title="Instagram">
             <i className="fa-brands fa-instagram fa-2xl"></i>
-          </Link>
+          </a>
         </div>
       </header>
       <div className="remix-app__main">
